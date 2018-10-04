@@ -5,6 +5,10 @@ const bcrypt = require('bcryptjs');
 const _ = require('underscore');
 const {verificaToken, verificaAdminRole} = require('../middlewares/autenticacion');
 
+// ======================================================
+//   Mostrar todos los usuarios
+// ======================================================
+
 app.get('/usuario', verificaToken, (req, res) => {
 
     /*return res.json({
@@ -40,6 +44,10 @@ app.get('/usuario', verificaToken, (req, res) => {
         });
 });
 
+// ======================================================
+//   Crear un usuario
+// ======================================================
+
 app.post('/usuario', [verificaToken, verificaAdminRole], (req, res) => {
 
 
@@ -71,6 +79,10 @@ app.post('/usuario', [verificaToken, verificaAdminRole], (req, res) => {
 
 });
 
+// ======================================================
+//   Actualizar un usuario
+// ======================================================
+
 app.put('/usuario/:id', [verificaToken, verificaAdminRole], (req, res) => {
 
     let id = req.params.id;
@@ -94,6 +106,10 @@ app.put('/usuario/:id', [verificaToken, verificaAdminRole], (req, res) => {
         });
     });
 });
+
+// ======================================================
+//   Eliminar un usuario
+// ======================================================
 
 app.delete('/usuario/:id', [verificaToken, verificaAdminRole], (req, res) => {
 
